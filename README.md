@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Chaitanya7725
-- 👀 I’m interested in developing Web Applications 
-- 🌱 I’m currently learning Angular and honing basic Programming skills
-- 💞️ I’m looking to collaborate on Angular and Machine learning
+- 👀 I’m interested in developing Web Applications
+- 🌱 I’m currently learning Microservices and going through Programming skills
+- 💞️ I’m looking to collaborate on ReactJS and Machine learning
 - 📫 How to reach me : https://www.linkedin.com/in/chaitanya-takalikar/
 
 <!---
