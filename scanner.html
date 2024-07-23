@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,5 +30,63 @@
         html5Qrcode.start({facingMode:"environment"}, config,qrCodeSuccessCallback );
     </script>
     
+</body>
+</html> -->
+
+<!-- mobile friendly -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>DOH BarCode Scanner App</title>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Barcode Scanner</h1>
+        <br>
+        <button onclick="startScanningBack()">Start Scanning using rear camera</button>
+        <button onclick="startScanningFront()">Start Scanning using front camera</button>
+        <div id="reader" style="margin:auto;width: 50%;"></div>
+        <div id="show" style="display: none;">
+            <h2>Scanned Result</h2>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script>
+        const html5QrCode = new Html5Qrcode("reader");
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+            if (decodedText) {
+                document.getElementById('show').style.display = 'block';
+                document.getElementById('result').textContent = decodedText;
+                html5QrCode.stop();
+            }
+        };
+        const config = { fps: 20, qrbox: { width: 500, height: 250 } };
+
+        function startScanningBack() {
+            html5QrCode.start(
+                { facingMode: "environment" },
+                config,
+                qrCodeSuccessCallback
+            ).catch((err) => {
+                console.error(`Unable to start scanning: ${err}`);
+            });
+        }
+
+        function startScanningFront() {
+            html5QrCode.start(
+                { facingMode: "user" },
+                config,
+                qrCodeSuccessCallback
+            ).catch((err) => {
+                console.error(`Unable to start scanning: ${err}`);
+            });
+        }
+    </script>
 </body>
 </html>
