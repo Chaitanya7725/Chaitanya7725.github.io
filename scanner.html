@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOH BarCode Scanner App</title>
+</head>
+<body>
+    <script src="qrScript.js"></script>
+    <div style="text-align: center;">
+        <h1>Barcode Scanner</h1>
+        <br>
+        <div id="reader" style="margin:auto;width: 50%;"></div>
+        <div id="show" style="display: none;">
+            <h2>Scanned Result</h2>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script>
+        const html5Qrcode = new Html5Qrcode('reader');
+        const qrCodeSuccessCallback = (decodedText, decodedResult)=>{
+            if(decodedText){
+                document.getElementById('show').style.display = 'block';
+                document.getElementById('result').textContent = decodedText;
+                html5Qrcode.stop();
+            }
+        }
+        const config = {fps:30, qrbox:{width:500, height:250}}
+        html5Qrcode.start({facingMode:"environment"}, config,qrCodeSuccessCallback );
+    </script>
+    
+</body>
+</html>
