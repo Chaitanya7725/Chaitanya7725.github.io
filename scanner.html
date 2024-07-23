@@ -66,11 +66,9 @@
                 html5QrCode.stop();
             }
         };
-        const config = { fps: 20, qrbox: { width: 300, height: 100 }, disableFlip: false,
-            experimentalFeatures: {
-                useBarCodeDetectorIfSupported: true // Enable zoom if supported
-            } 
-        };
+        const config = { fps: 30, qrbox: { width: 300, height: 200 }, disableFlip: false, zoom:2, experimentalFeatures: {
+                useBarCodeDetectorIfSupported: true
+            }};
 
         function startScanningBack() {
             html5QrCode.start(
